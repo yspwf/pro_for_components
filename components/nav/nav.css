@@ -1,0 +1,153 @@
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}
+
+.brand a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /* display: flex; 
+}
+
+.menu-item {
+  margin-left: 1rem;
+  float: left;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.menu-item a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.menu-item .active {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .menu-item {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+} */
+
+
+/* logo样式 */
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  /* color: white; */
+  text-decoration: none;
+}
+
+/* 导航菜单 */
+nav{
+  /* padding: 1rem; */
+  padding: 10px 0;
+  /* background-color: #333; */
+  /* color: #666; */
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+  text-align: center;
+}
+
+nav ul li a {
+  /* color: #333; */
+  text-decoration: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* 鼠标悬停时的效果 */
+/* nav ul li a:hover {
+  background-color: #444;
+} */
+
+/* 用户操作按钮 */
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-buttons a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 20px;
+  background-color: #1e87f0;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 鼠标悬停时的效果 */
+.auth-buttons a:hover {
+  background-color: white;
+  color: #1e87f0;
+}
+
+/* 响应式设计 - 当屏幕宽度小于768px时 */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  .auth-buttons {
+      flex-direction: column;
+      gap: 10px;
+  }
+}

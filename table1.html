@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用 DIV 创建表格</title>
+    <style>
+        .table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-header, .table-body {
+            display: table-row-group;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table-header .table-cell {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="table">
+    <div class="table-header">
+        <div class="table-row">
+            <div class="table-cell">姓名</div>
+            <div class="table-cell">年龄</div>
+            <div class="table-cell">性别</div>
+        </div>
+    </div>
+    <div class="table-body">
+        <div class="table-row">
+            <div class="table-cell">张三</div>
+            <div class="table-cell">25</div>
+            <div class="table-cell">男</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">李四</div>
+            <div class="table-cell">30</div>
+            <div class="table-cell">女</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

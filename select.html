@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul,li{
+      list-style: none;
+    }
+.selectBox {
+  float: left;
+  margin-top: 5px;
+  position: relative;
+  display: flex;
+  width: 40%;
+  max-width: 177px;
+}
+ 
+.ww_btn_Dropdown_arrow {
+  width: 0;
+  height: 0;
+  border-width: 5px 4px;
+  border-color: #828282 transparent transparent;
+  border-style: solid;
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  right: 8px;
+}
+ 
+.selectBox #inptSelect {
+  width: 100%;
+  padding: 2px 4px;
+}
+ 
+.selectBox .optionDiv {
+  display: none;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 1px;
+  background: #fff;
+  margin-top: 26px;
+  position: absolute;
+  z-index: 100;
+  border-radius: 2px;
+}
+ 
+.selectBox .optionDiv .ulShow {
+  display: block;
+}
+ 
+.selectBox .optionDiv ul li {
+  cursor: pointer;
+  height: 26px;
+  line-height: 26px;
+  font-size: 13px;
+  text-indent: 6px;
+}
+ 
+.selectBox .optionDiv ul li:hover {
+  background: #4a77ac;
+  color: #fff;
+}
+
+/* .ulShow{
+  display: block;
+} */
+  </style>
+</head>
+<body>
+  <div class="selectBox">
+    <span id="inptSelect" class="seal-select">请选择</span>
+    <span class="ww_btn_Dropdown_arrow "></span>
+    <div class="optionDiv">
+     <ul>
+       <li>初始护照</li>
+        <li>初级护照</li>
+        <li>中级护照</li>
+        <li>高级护照</li>
+        </ul>
+      </div>
+   </div>
+</body>
+</html>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $('.selectBox #inptSelect').on('click', function () {
+        $(this).siblings('.optionDiv').toggleClass('ulShow');
+    });
+    $('.selectBox  .optionDiv ul li').on('click', function () {
+        var selTxt = $(this).text();
+        $('.selectBox  #inptSelect').text(selTxt);
+        $('.optionDiv').removeClass('ulShow');
+    });
+</script>

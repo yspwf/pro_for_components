@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+.table-container {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+ 
+.table-row {
+  display: table-row;
+}
+ 
+.table-cell {
+  display: table-cell;
+  border: 1px solid #ccc; /* 表格线条 */
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+ 
+/* 可选添加奇偶行样式 */
+.table-row:nth-child(even) .table-cell {
+  background-color: #f2f2f2;
+}
+ 
+/* 若要实现更复杂的单元格合并等功能，可以继续编写相应的CSS */
+</style>
+</head>
+<body>
+ 
+<div class="table-container">
+  <div class="table-row">
+    <div class="table-cell">标题1</div>
+    <div class="table-cell">数据1</div>
+    <div class="table-cell">数据1</div>
+  </div>
+  <div class="table-row">
+    <div class="table-cell">数据1</div>
+    <div class="table-cell">数据2</div>
+    <div class="table-cell">数据3</div>
+  </div>
+  <!-- 添加更多行 -->
+</div>
+ 
+</body>
+</html>

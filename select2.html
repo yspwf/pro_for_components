@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>div模拟select选择框</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <!-- <link href="css/customSelect.css" rel="stylesheet" /> -->
+        <style>
+          ul,li,div,span{
+    box-sizing: border-box;
+}
+.select-box ul,
+.select-box li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background: #fff;
+}
+.select-box {
+    width: 100%;
+    position: relative;
+    background: #fff;
+}
+#fisrt {
+    display: block;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    padding: 0 15px;
+    padding-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    /*white-space: nowrap;*/
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#fisrt.active {
+    border: 1px solid #F2C051;
+}
+#fisrt::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #000;
+    background: #fff;
+}
+
+.custom-option-box {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top-color: transparent;
+    z-index: 10000;
+}
+.custom-option-box li {
+    display: block;
+    line-height: 30px;
+    padding: 0 15px;
+    z-index: 10000;
+}
+.custom-option-box li:hover, 
+.custom-option-box li.active {
+    background: #F2C051;
+}
+.custom-option-box span {
+    cursor: pointer;
+}
+        </style>
+    </head>
+
+    <body>
+        
+        <div class="custom-select-box">
+            <div class="select-box mui-inline" style="width: 220px;">
+                <span id="fisrt" data-show="0">1</span>
+                <ul class="custom-option-box">
+                    <li class="active"><span>1</span></li>
+                    <li><span>2</span></li>
+                    <li><span>3</span></li>
+                    <li><span>4</span></li>
+                </ul>
+            </div>
+                            
+        </div>
+         
+         
+        <!-- <script src="js/customSelect.js"></script> -->
+        
+        
+    </body>
+
+</html>

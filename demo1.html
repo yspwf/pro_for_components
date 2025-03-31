@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>顶部导航栏</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      
+      .top-nav {
+        background-color: #ffffff;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+      }
+      .nav-left {
+        flex-grow: 1;
+      }
+      .nav-right {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+      }
+      
+      .nav-item {
+        text-decoration: none;
+        font-size: 17px;
+        color: #333;
+        padding: 14px 16px;
+      }
+      .top-nav a:hover {
+        color: blue;
+      }
+      .top-nav a.active {
+        font-weight: bold;
+        background-color: royalblue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-nav">
+      <div class="nav-left">
+        <a href="#home" class="nav-item">Home</a>
+        <a href="#category" class="nav-item">Category</a>
+      </div>
+      <div class="nav-right">
+        <a href="#contact" class="nav-item">Contact</a>
+        <a href="#about" class="nav-item">Help</a>
+      </div>
+    </div>
+
+
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="340px" height="333px" viewBox="0 0 340 333" enable-background="new 0 0 340 333" xml:space="preserve">
+
+  <g id="g1">
+   <path id="svg_1" class="path1" d="m55.5,78.45001c11,-9 65,-30 64.5,-30.45001c0.5,0.45001 69.5,-17.54999 78.5,28.45001c9,46 -42,121 -42.5,120.54999" stroke-width="1.5" stroke="red" fill="transparent"/>
+  </g>
+</svg>
+  </body>
+  
+  <script>
+      // 获取导航链接的父容器和所有链接元素
+      const topnav = document.querySelector('.top-nav');
+      const navitems = topnav.querySelectorAll('.nav-item');
+    
+      // 为每个导航链接添加点击事件
+      navitems.forEach((navitem) => {
+        navitem.addEventListener('click', () => {
+          // 移除其他链接的选中类
+          navitems.forEach((item) => item.classList.remove('active'));
+    
+          // 为当前点击的链接添加选中类
+          navitem.classList.add('active');
+        });
+      });
+  </script>
+</html>

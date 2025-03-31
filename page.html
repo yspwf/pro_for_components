@@ -1,0 +1,245 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul.breadcrumb {
+            padding: 8px 16px;
+            list-style: none;
+            background-color: #eee;
+        }
+
+        ul.breadcrumb li {
+            display: inline;
+        }
+
+        ul.breadcrumb li+li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+
+        ul.breadcrumb li a {
+            color: green;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="navi">
+        <ul class="breadcrumb">
+            <li><a href="#">首页 </a></li>
+            <li><a href="#">前端 </a></li>
+            <li><a href="#">HTML 教程 </a></li>
+            <li>HTML 段落</li>
+        </ul>
+    </div>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul.pagination {
+            display: inline-block;
+        }
+
+        ul.pagination li {
+            display: inline;
+        }
+
+        ul.pagination li a {
+            color: black;
+            /*字体颜色设置为黑色*/
+            float: left;
+            padding: 8px 16px;
+            /*增加内边距*/
+            text-decoration: none;
+            /*取消超链接下划线*/
+            border: 1px solid #dddddd;
+            /*设置边框*/
+        }
+
+        ul.pagination li a:hover {
+            color: #ccc;
+            background-color: #eeeeee;
+            border-color: #ddd;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <ul class="pagination">
+            <li><a href="#">«</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">»</a></li>
+        </ul>
+    </div>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>分页示例</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  .pagination-controls {
+    margin-bottom: 10px;
+  }
+  .pagination-info {
+    margin-bottom: 10px;
+  }
+  ul {
+    list-style: none;
+    padding:0;
+  }
+  li {
+    margin:5px 0;
+  }
+</style>
+</head>
+<body>
+ 
+<div class="pagination-controls">
+  <label>每页显示条数：
+    <select id="pageSizeSelect">
+      <option value="5">5</option>
+      <option value="10" selected>10</option>
+      <option value="20">20</option>
+    </select>
+  </label>
+</div>
+ 
+<div class="pagination-info">
+  <span id="pageInfo"></span>
+</div>
+ 
+<ul id="dataList"></ul>
+ 
+<div class="pagination-actions">
+  <button id="prevBtn">上一页</button>
+  <button id="nextBtn">下一页</button>
+  <input type="number" id="gotoPageInput" placeholder="页码" style="width:60px;">
+  <button id="gotoPageBtn">跳转</button>
+</div>
+ 
+<script>
+  // 模拟数据，假设有100条数据
+  const items = [];
+  for (let i = 1; i <= 100; i++) {
+    items.push("第 " + i + " 条数据");
+  }
+ 
+  let currentPage = 1;           // 当前页码
+  let pageSize = 10;             // 每页显示条数（默认10条）
+  const totalItems = items.length; 
+  let totalPages = Math.ceil(totalItems / pageSize); // 总页数 = 总数据条数 / 每页条数
+ 
+  const pageInfo = document.getElementById('pageInfo');
+  const dataList = document.getElementById('dataList');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const gotoPageInput = document.getElementById('gotoPageInput');
+  const gotoPageBtn = document.getElementById('gotoPageBtn');
+  const pageSizeSelect = document.getElementById('pageSizeSelect');
+ 
+  // 渲染当前页的数据列表
+  function renderPage() {
+    // 计算当前页数据在总数据中的起始与结束索引
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
+    const currentData = items.slice(start, end);
+ 
+    // 清空现有列表
+    dataList.innerHTML = '';
+    // 将当前页数据依次加入列表
+    currentData.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      dataList.appendChild(li);
+    });
+ 
+    // 更新分页信息
+    pageInfo.textContent = `当前第 ${currentPage} 页 / 共 ${totalPages} 页，总计 ${totalItems} 条数据`;
+  }
+ 
+  // 更新分页按钮的状态（例如在第一页禁用“上一页”，在最后一页禁用“下一页”）
+  function updateButtonStates() {
+    prevBtn.disabled = (currentPage <= 1);
+    nextBtn.disabled = (currentPage >= totalPages);
+  }
+ 
+  // 当用户选择不同的每页条数时重新计算分页信息
+  pageSizeSelect.addEventListener('change', () => {
+    pageSize = parseInt(pageSizeSelect.value, 10);
+    totalPages = Math.ceil(totalItems / pageSize);
+    currentPage = 1; // 切换后从第一页显示
+    renderPage();
+    updateButtonStates();
+  });
+ 
+  // 上一页按钮事件
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage();
+      updateButtonStates();
+    }
+  });
+ 
+  // 下一页按钮事件
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage();
+      updateButtonStates();
+    }
+  });
+ 
+  // 跳转到指定页按钮事件
+  gotoPageBtn.addEventListener('click', () => {
+    const page = parseInt(gotoPageInput.value, 10);
+    if (!isNaN(page) && page >= 1 && page <= totalPages) {
+      currentPage = page;
+      renderPage();
+      updateButtonStates();
+    } else {
+      alert("请输入有效的页码（1~" + totalPages + "）");
+    }
+  });
+ 
+  // 初始化渲染
+  renderPage();
+  updateButtonStates();
+</script>
+ 
+</body>
+</html>

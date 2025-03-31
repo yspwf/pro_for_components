@@ -1,0 +1,483 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boke</title>
+   <style>
+     /*设置外部容器样式*/
+.top-bar-wrapper{
+    background-color: dimgray;
+    height:60px;
+    margin: 0 auto;
+}
+
+/*设置内部容器样式*/
+.top-bar{
+    /*固定宽度*/
+    width: 900px;
+    /*水平居中*/
+    margin: 0 auto;
+    position: relative;
+}
+
+.nav li{
+    float: left;
+    /*去除无序列表中的下划线*/
+    list-style: none;
+    /*文字在父元素中居中*/
+    line-height: 40px;
+}
+.nav a{
+    /*将行内元素变为块元素*/
+    display: block;
+    /*去除无序列表中的小圆点*/
+    text-decoration: none;
+    /*字体颜色*/
+    color: white;
+    /*字体大小*/
+    font-size: 17px;
+    /*设置内边距*/
+    padding: 0 27px;
+}
+/*鼠标移入时a的效果*/
+.nav a:hover{
+    color: deepskyblue;
+}
+
+
+/*列表样式*/
+.top-nav .list{
+    display: none;
+    width:900px;
+    height: 400px;
+    background-color: dimgray;
+    top: 0 ;
+    position: absolute;
+    z-index: 999;
+}
+
+.top-nav{
+    float: left;
+}
+
+.top-nav:hover .list{
+    display: block;
+}
+
+   </style>
+</head>
+<body>
+
+    <div class="top-bar-wrapper">
+
+      <div class="top-bar clearfix">
+
+        <div class="top-nav">
+
+            <ul class="nav">
+                 <li>
+                    <a href="#">X系列</a>
+                 </li>
+                 <li>
+                    <a href="#">S系列</a>
+                 </li>
+                 <li>
+                     <a href="#">T系列</a>
+                 </li>
+                 <li>
+                     <a href="#">Y系列</a>
+                 </li>
+                 <li>
+                     <a href="#">iQOO手机</a>
+                 </li>
+                 <li>
+                     <a href="#">智能硬件</a>
+                 </li>
+                 <li>
+                     <a href="#">商城</a>
+                 </li>
+                 <li>
+                     <a href="#">服务</a>
+                 </li>
+            </ul>
+            
+            <div class="list"></div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现代化顶部导航栏</title>
+    <style>
+      /* 设置全局字体和背景色 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* 顶部导航栏容器 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* logo样式 */
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* 导航菜单 */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* 鼠标悬停时的效果 */
+nav ul li a:hover {
+    background-color: #444;
+}
+
+/* 用户操作按钮 */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 20px;
+    background-color: #1e87f0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 鼠标悬停时的效果 */
+.auth-buttons a:hover {
+    background-color: white;
+    color: #1e87f0;
+}
+
+/* 响应式设计 - 当屏幕宽度小于768px时 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">MyWebsite</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="login">登录</a>
+            <a href="#" class="signup">注册</a>
+        </div>
+    </header>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>智能导航栏</title>  
+</head>  
+<style>
+  body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background-color: #f0f0f0;  
+}  
+
+ul, li {  
+    list-style: none;  
+    margin: 0;  
+    padding: 0;  
+  }
+  a {  
+    color: white;  
+    text-decoration: none;  
+    font-size: 18px; 
+  }
+.navbar {  
+    background-color: #333;  
+    padding: 10px 0;  
+    text-align: center;  
+}  
+  
+.navbar ul {  
+    list-style: none;  
+    margin: 0;  
+    padding: 0;  
+    display: flex;  
+    justify-content: center;  
+    position: relative;  
+}  
+  
+.navbar ul li {  
+    margin: 0 15px;  
+    position: relative;  
+}  
+  
+.navbar ul li a {  
+    color: white;  
+    text-decoration: none;  
+    font-size: 18px;  
+    position: relative;  
+    padding: 5px 0;  
+    transition: color 0.3s ease;  
+}  
+  
+  
+.navbar ul li a::after {  
+    content: '';  
+    position: absolute;  
+    width: 0;  
+    height: 2px;  
+    background-color: #007BFF;  
+    left: 50%;  
+    bottom: 0;  
+    transition: all 0.3s ease;  
+    transform: translateX(-50%);  
+}  
+  
+.navbar ul li a::before {  
+    content: '';  
+    position: absolute;  
+    top: 50%;  
+    left: 50%;  
+    width: 10px;  
+    height: 10px;  
+    background-color: #007BFF;  
+    border-radius: 50%;  
+    opacity: 0;  
+    transform: translate(-50%, -50%) scale(0.5);  
+    transition: opacity 0.3s ease, transform 0.3s ease;  
+}  
+  
+.navbar ul li a:hover {  
+    color: #007BFF;  
+}  
+  
+.navbar ul li a:hover::after {  
+    width: 100%;  
+}  
+  
+.navbar ul li a:hover::before {  
+    opacity: 1;  
+    transform: translate(-50%, -50%) scale(1.5);  
+    animation: bubble 1s ease-in-out infinite;  
+}  
+  
+@keyframes bubble {  
+    0%, 100% {  
+        transform: translate(-50%, -50%) scale(1.5);  
+    }  
+    50% {  
+        transform: translate(-50%, -150%) scale(1);  
+        opacity: 0;  
+    }  
+}  
+  
+.navbar ul li a:hover {  
+    color: #007BFF;  
+}  
+  
+.navbar ul li a:hover::after {  
+    width: 100%;  
+}  
+  
+.navbar ul li  .dropdown {  
+    display: none;  
+    position: absolute;  
+    /* top: 100%;   */
+    top: 115%;
+    left: 0;  
+    background-color: #333;  
+    padding: 10px 0;  
+    border-radius: 5px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+}  
+  
+.dropdown li {  
+    padding: 10px 20px;  
+}  
+  
+.dropdown li a {  
+    color: white;  
+    font-size: 16px;  
+    white-space: nowrap;  
+}  
+  
+.navbar ul li:hover .dropdown {  
+    display: block;  
+    animation: fadeIn 0.3s forwards;
+    transition: opacity 0.3s ease, transform 0.3s ease;  
+}  
+  
+.navbar ul li .dropdown li a:hover {  
+    color: #007BFF;  
+}
+
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+    background: #666;
+}
+
+.menu li {
+  position: relative;
+}
+
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ddd;
+}
+
+.dropdown .dropdown-menu {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+<body>  
+<nav class="navbar">  
+    <ul>        
+      <li><a href="#">首页</a></li>  
+        <li>            
+          <a href="#">关于我们</a>  
+            <ul class="dropdown">  
+                <li><a href="#">团队</a></li>  
+                <li><a href="#">历史</a></li>  
+                <li><a href="#">文化</a></li>  
+            </ul>        
+          </li>        
+          <!-- <li>            
+            <a href="#">服务</a>  
+            <ul class="dropdown">  
+                <li><a href="#">咨询</a></li>  
+                <li><a href="#">支持</a></li>  
+                <li><a href="#">培训</a></li>  
+            </ul>        
+            </li>         -->
+            <li><a href="#">联系我们</a>
+            </li>  
+    </ul></nav>  
+
+
+
+    <nav>
+      <ul class="menu">
+        <li><a href="#">首页</a></li>
+        <li class="dropdown">
+          <a href="#" class="trigger">产品</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">产品1</a></li>
+            <li><a href="#">产品2</a></li>
+            <li><a href="#">产品3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">关于我们</a></li>
+      </ul>
+    </nav>
+    
+</body>  
+</html>
+

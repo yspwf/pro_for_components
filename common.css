@@ -1,0 +1,121 @@
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font:12px/20px Arial, Helvetica, sans-serif ,"宋体";
+} */
+
+/* body{margin:0;padding:0 0 12px 0;font-size:12px;line-height:22px;font-family:"\5b8b\4f53","Arial Narrow";background:#fff;} */
+/* form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+input,select{font-size:12px;line-height:16px;}
+img{border:0;}
+ul,li{list-style-type:none;}
+a {color:#00007F;text-decoration:none; cursor: pointer;} */
+/* a:hover {color:#bd0a01;text-decoration:underline;} */
+
+/* h3{
+  background: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  /* transform:rotate(25deg); 
+  transform: translate(200px, 200px);
+} */
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,
+code,del,dfn,em,img,ins,kbd,
+q,s,samp,small,strike,strong,
+sub,sup,tt,var,b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,
+figure,figcaption,footer,header,hgroup,
+menu,nav,output,ruby,section,summary,
+time,mark,audio,video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  /* font:12px/20px Arial, Helvetica, sans-serif ,"宋体"; */
+  font:14px/1.8 arial;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+body {
+  /* line-height: 1; */
+  color: #333; 
+  /* font-size: 12px;  */
+  font-family: Microsoft Yahei; 
+  line-height: 18px;
+}
+ol,ul {
+  list-style: none;
+}
+blockquote,q{
+  quotes: none;
+}
+
+a,a:hover{
+  color: inherit;
+  text-decoration: none;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html,body{
+  width: 100%;
+  background-color: #6c80ec;
+  /* background: linear-gradient(45deg, #5a97e8, #9bcbef); */
+  height: 100vh;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float:right;
+}
+
+
+/* 所有标签默认内外间距 */
+/* body, div, p, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+span, em, a, strong, form, input, button, textarea, table, th, td {
+    margin: 0; padding: 0;
+} */
+ 
+/* 字体类标签无特殊样式(大小,粗细,倾斜等) */
+h1, h2, h3, h4, h5, h6, em, i, strong {
+    font-size: 100%; font-weight: normal; font-style: normal;
+}
+
+/* .main-container{
+  min-height: calc(100vh - 64px);
+}
+.main-container .ant-layout-content {
+  margin: 0px !important;
+}
+.main-container .app-name{
+  background-color: #001520;
+  text-align: center;
+  color: #fff;
+  line-height: 64px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.main-container .ant-layout-content {
+  background-color: #f5f5f5 !important;
+}
+
+.main-container .ant-menu {
+  height: calc(100vh - 64px) !important;
+} */

@@ -1,0 +1,210 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Title</title>  
+    <style>
+      * {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+/* 重置按钮样式 */button {  
+    appearance: none;  
+    background-color: transparent;  
+    border: none;  
+    cursor: pointer;  
+    outline: none;  
+    padding: 0;  
+    margin: 0;  
+    font-family: inherit;  
+    font-size: inherit;  
+    color: inherit;  
+    text-decoration: none;  
+    text-transform: none;  
+    line-height: normal;  
+    overflow: visible;  
+}  
+  
+body {  
+    min-height: 100svh;  
+    background-color: rgb(15, 23, 42);  
+    color: white;  
+    display: grid;  
+    place-content: center;  
+    font-size: 1rem;  
+    font-family: system-ui;  
+}  
+  
+nav {  
+    --_clr-txt: rgb(255, 255, 255);  
+    --_clr-txt-svg: rgb(147, 158, 184);  
+    --_ani-speed: 6s;  
+    /* 旋转文本的速度 */  
+    display: flex;  
+    /*flex-wrap: wrap;*/  
+    gap: 1rem;  
+    font-size: 1.4rem;  
+}  
+  
+nav>button {  
+    position: relative;  
+    display: grid;  
+    place-content: center;  
+    grid-template-areas: 'stack';  
+    padding: 0 1.5rem;  
+    text-transform: uppercase;  
+    font-weight: 300;  
+}  
+  
+/* 将按钮元素堆叠在一起 */nav>button>span {  
+    transition: all 300ms ease-in-out;  
+    grid-area: stack;  
+}  
+  
+/* 导航图标 */nav>button>span:last-of-type {  
+    margin-top: 0.25rem;  
+    transform: scale(0);  
+    transition-delay: 0ms;  
+    border-radius: 50%;  
+}  
+  
+/* 悬停 - 隐藏文本 */nav>button:focus-visible>span:first-of-type,  
+nav>button:hover>span:first-of-type {  
+    transform: scale(0);  
+}  
+  
+/* 悬停 - 显示图标 */nav>button:focus-visible>span:last-of-type,  
+nav>button:hover>span:last-of-type {  
+    transform: scale(1);  
+}  
+  
+/* 导航 SVG 圆形文本 */nav>button>svg {  
+    position: absolute;  
+    width: 200px;  
+    height: 200px;  
+    top: 50%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);  
+    transform-origin: center;  
+    opacity: 0;  
+    text-transform: uppercase;  
+    transition: all 300ms ease-in-out;  
+    color: var(--_clr-txt-svg);  
+}  
+  
+/* 悬停 - 显示旋转的 SVG */nav>button:focus-visible>svg,  
+nav>button:hover>svg {  
+    transform: translate(-50%, -50%) scale(1);  
+    opacity: 1;  
+    transition-delay: 150ms;  
+    transition: all 300ms ease-in-out;  
+}  
+  
+/*  
+@supports (-webkit-touch-callout: none) {  
+/* 特定于 iOS 设备 * /button svg {  
+/* 调整 iOS 设备的位置 * /translate: -50% -50%;  
+animation: rotate var(--_ani-speed) linear infinite;  
+}  
+}  
+@supports not (-webkit-touch-callout: none) {  
+*/  
+  
+  
+button svg g {  
+    transform-origin: center;  
+    animation: rotate var(--_ani-speed) linear infinite;  
+}  
+  
+  
+@keyframes rotate {  
+    0% {  
+        transform: rotate(0deg);  
+    }  
+  
+    100% {  
+        transform: rotate(360deg);  
+    }  
+}
+
+    </style>
+</head>  
+<body>  
+<nav>  
+    <!-- 导航栏按钮，用于主要页面导航 -->  
+    <nav>  
+        <!-- 主页按钮，包含文本和图标表示 -->  
+        <button type="button" title="Home">  
+            <span>Home</span>  
+            <!-- 使用Material Symbols Outline图标的HTML代码，用于增强视觉效果 -->  
+            <span class="material-symbols-outlined" aria-hidden="true">首页</span>  
+            <!-- SVG图形用于呈现"Home"文本的视觉效果，aria-hidden属性表示此元素不用于屏幕阅读器 -->  
+            <svg viewBox="0 0 300 300" aria-hidden="true">  
+                <g>  
+                    <!-- 使用textPath元素将文本沿着路径绘制 -->  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath">Home</textPath>  
+                    </text>  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath" startOffset="50%">Home</textPath>  
+                    </text>  
+                </g>  
+            </svg>  
+        </button>  
+        <!-- 关于按钮，包含文本和图标表示 -->  
+        <button type="button">  
+            <span>About</span>  
+            <span class="material-symbols-outlined" aria-hidden="true">信息</span>  
+            <svg viewBox="0 0 300 300" aria-hidden="true">  
+                <g>  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath">About</textPath>  
+                    </text>  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath" startOffset="50%">About</textPath>  
+                    </text>  
+                </g>  
+            </svg>  
+        </button>  
+        <!-- 服务按钮，包含文本和图标表示 -->  
+        <button type="button">  
+            <span>Services</span>  
+            <span class="material-symbols-outlined" aria-hidden="true">服务</span>  
+            <svg viewBox="0 0 300 300" aria-hidden="true">  
+                <g>  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath">Services</textPath>  
+                    </text>  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath" startOffset="50%">Services</textPath>  
+                    </text>  
+                </g>  
+            </svg>  
+        </button>  
+        <!-- 联系按钮，包含文本和图标表示 -->  
+        <button type="button">  
+            <span>concat</span>  
+            <span class="material-symbols-outlined" aria-hidden="true">联系</span>  
+            <svg viewBox="0 0 300 300">  
+                <g>  
+                    <text fill="currentColor" aria-hidden="true">  
+                        <textPath xlink:href="#circlePath">Contact</textPath>  
+                    </text>  
+                    <text fill="currentColor">  
+                        <textPath xlink:href="#circlePath" startOffset="50%">Contact</textPath>  
+                    </text>  
+                </g>  
+            </svg>  
+        </button>  
+    </nav>  
+  
+    <!-- SVG 模板与动态文本 -->  
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  
+         viewBox="0 0 300 300" width="0" height="0">  
+        <defs>  
+            <path id="circlePath" d="M 150, 150 m -50, 0 a 50,50 0 0,1 100,0 a 50,50 0 0,1 -100,0" />  
+        </defs>  
+    </svg>  
+</body>  
+</html>

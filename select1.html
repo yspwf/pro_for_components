@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+ul,li{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+}
+
+.select_divselect {
+	width: 290px;
+	height: 36px;
+	padding: 2px 5px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	position: relative;	
+}
+
+.select_divselect_noradius {
+	/*这里加这个，是为了修改圆角的时候方便，但是代码同时会增多，会不会影响性能呢,还希望有大神解惑*/
+	width: 290px;
+	height: 36px;
+	padding: 2px 5px;
+	border: 1px solid #999;
+	border-bottom: 0px;
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	position: relative;
+}
+.select_divselect cite,.select_divselect_noradius cite {
+	display: block;
+	width: 290px;
+	height: 36px;
+	line-height: 36px;
+	background: url(../images/xjt.png) no-repeat right center;
+	text-align: center;
+	position: relative;
+}
+.select_divselect cite img,.select_divselect_noradius cite img {
+	width: 30px;
+	height: 30px;
+	border: 0px;	
+	position: absolute;
+	left: 20px;
+	top: 3px;
+	margin: 0px;
+}
+
+.select_divselect ul img,.select_divselect_noradius ul img {
+	width: 30px;
+	height: 30px;
+	border: 0px;	
+	position: absolute;
+	left: 25px;
+	top: 5px;
+	margin: 0px;
+}
+.select_divselect ul,.select_divselect_noradius ul {
+	position: absolute;
+	z-index: 99;
+	width: 300px;
+	border: 1px solid #999;
+	left: 0px;
+	background: #fff;
+	/*border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;*/
+	top: 41px;
+	height: 200px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.select_divselect_noradius ul li,.select_divselect ul li {
+	position: relative;
+	text-align: center;
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;	
+}
+.select_divselect_noradius ul li a,.select_divselect ul li a {
+	display:block;
+	height:40px;
+	color: #333;
+	width: 290px;
+	text-align: center;
+	margin: 0px;
+	text-decoration: none;
+}
+.select_divselect_noradius ul li a:hover,.select_divselect_noradius ul li a.yh_selected {
+	color: #fff;
+	background:  #ff5205;
+	text-decoration: none;
+}
+.select_divselect ul {
+	display:none;	
+}
+  </style>
+</head>
+<body>
+  <div id="divselect" class="select_divselect">
+    <cite>
+      <!-- <img src="images/yh_gsyh.png" /> -->
+      <label>工商银行</label></cite>
+    <ul style="display:none;">
+       <li><a href=" ">
+         <!-- <img src="images/yh_zgyh.png" /> -->
+         <label>中国银行</label></a></li>
+       <li><a href=" ">
+         <!-- <img src="images/yh_zsyh.png" /> -->
+         <label>招商银行</label></a></li>
+       <li><a href=" ">
+         <!-- <img src="images/yh_jsyh.png" /> -->
+         <label>建设银行</label></a></li>
+       <li><a href=" ">
+         <!-- <img src="images/yh_gfyh.png" /> -->
+         <label>广发银行</label></a></li>
+       <li><a href=" ">
+         <!-- <img src="images/yh_shyh.png" /> -->
+         <label>上海银行</label></a></li>
+    </ul>
+  </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+  ;(function($){
+	$.extend({
+		'divselect':function(divselectid,inputselectid) {
+			var inputselect = $(inputselectid);
+			$(divselectid+" cite").click(function(event){
+				var ul = $(divselectid+" ul");
+				if(ul.css("display")=="none"){
+					$("#divselect").addClass("select_divselect_noradius") .removeClass("select_divselect");
+					ul.slideDown("fast");
+				}else{
+					ul.slideUp("fast");
+					$("#divselect").addClass("select_divselect") .removeClass("select_divselect_noradius");
+				}
+				event.preventDefault();event.stopPropagation();
+			});
+			$(divselectid+" ul li a").click(function(event){//选取某一信息时
+				$("#divselect").addClass("select_divselect") .removeClass("select_divselect_noradius");
+				var txt = $(this).html();
+				$(divselectid+" cite").html(txt);//这里可以进行操作，比方说加个隐藏域，后台获取隐藏域信息
+				var value = $(this).addClass("yh_selected").parent().siblings().find("a").removeClass("yh_selected");//保证选中的变色
+				$(divselectid+" ul").hide();
+				event.preventDefault();event.stopPropagation();//防止冒泡
+			});
+			$(document).click(function(){
+				$("#divselect").addClass("select_divselect") .removeClass("select_divselect_noradius");
+				$(divselectid+" ul").hide();
+			});
+		}
+	})
+})(jQuery)
+</script>

@@ -1,0 +1,252 @@
+<!-- <!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+        /*隐藏checked复选框*/
+            #sidemenu{
+                display: none;
+            }
+
+            #sidemenu:checked + aside {
+                /*为被选中的sidemenu后的aside设置属性（紧邻）*/
+                left: 0;
+                /*点击按钮即选中checked后,侧边栏位置变为贴着左边,配合ease-out使用,有渐变滑出的效果*/
+            }
+
+            #sidemenu:checked ~ #wrap {
+                /*为被选中的sidemenu后的wrap设置属性（非紧邻）*/
+                padding-left: 220px;
+            }
+
+            aside {
+                /*侧边栏,初始位置为-200px，即隐藏效果*/
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -200px;
+                width: 200px;
+                background: black;
+                transition: 0.2s ease-out;
+                /*动画效果的执行方式是ease-out，即侧边栏滑动效果为渐变式，而不是生硬的突然变化*/
+            }
+
+            h2 {
+                color: white;
+                text-align: center;
+                font-size: 2em;
+            }
+
+            /*控制侧边栏进出的按钮（外部包裹）*/
+            #wrap {
+                margin-left: 20px;
+                padding: 10px;
+                transition: 0.2s ease-out;
+            }
+
+            /*控制侧边栏进出的按钮（内部文字样式）*/
+            label {
+                /*控制侧边栏进出的按钮*/
+                background: white;
+                border-radius: 70px;
+                color: orange;
+                cursor: pointer;
+                display: block;
+                font-family: Courier New;
+                font-size: 2em;
+                width: 1.5em;
+                height: 1.5em;
+                line-height: 1.5em;
+                text-align: center;
+                display: inline-block;
+            }
+
+            label:hover {
+                background: #000;
+            }
+
+            #sideul li {
+                list-style: none;
+                color: white;
+                width: 100%;
+                height: 1.8em;
+                font-size: 1.5em;
+                text-align: center;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            #sideul li:hover {
+                color: orange;
+            }
+        </style>
+    </head>
+
+    <body>
+        <input type='checkbox' id='sidemenu'>
+        <aside>
+            <h2>主菜单</h2>
+            <br />
+            <ul id="sideul">
+                <a href="##">
+                    <li>首页</li>
+                </a>
+                <a href="##">
+                    <li style="color: orange;">导航1</li>
+                </a>
+                <a href="##">
+                    <li>导航2</li>
+                </a>
+                <a href="##">
+                    <li>导航3</li>
+                </a>
+                <a href="##">
+                    <li>导航4</li>
+                </a>
+                <a href="##">
+                    <li>导航5</li>
+                </a>
+                <a href="##">
+                    <li>导航6ʳ</li>
+                </a>
+            </ul>
+        </aside>
+        <div id='wrap'>
+            <label id='sideMenuControl' for='sidemenu'>≡</label>
+            <!-for 属性规定 label 与哪个表单元素绑定，即将这个控制侧边栏进出的按钮与checkbox绑定
+        </div>
+
+    </body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-size: 35px;
+        }
+        li{
+            list-style: none;
+        }
+        nav{
+            height: 50px;
+            width: 100%;
+            background-color: rgb(150, 150, 150);
+        }
+        nav>ul{
+            height: 100%;
+        }
+        nav>ul>li{
+            display: inline-block;
+            line-height: 50px;
+            padding: 0 15px;
+            color: white;
+        }
+        nav>ul>li:hover{
+            background-color: green;
+        }
+        div{
+            width: 100%;
+            padding: 20px;
+            /* position: relative; */
+            box-sizing: border-box;
+        }
+        aside{
+            width: 300px;
+            display: inline-block;
+            position: relative;
+            top: -68px;
+        }
+        aside li{
+            height: 60px;
+            width: 300px;
+            text-align: center;
+            line-height: 60px;
+            margin: 12px;
+            background-color: rgb(236, 236, 236);
+            color: gray;
+        }
+        aside li:hover{
+            background-color: rgb(0, 0, 196);
+            color: white;
+        }
+        section{
+            /* position: absolute; */
+            width: 1100px;
+            display:inline-block;
+            margin-left: 50px;
+        }
+        section>article{
+            line-height: 40px;
+        }
+        section>header{
+            margin-top: 10px;
+            width: 1100px;
+            height: 150px;
+            background-color: rgb(48, 113, 255);
+            font-size: 40px;
+            text-align: center;
+            line-height: 150px;
+            color: white;
+        }
+        footer{
+            box-sizing: border-box;
+            height: 60px;
+            width: 100%;
+            padding: 10px;
+            background-color: gray;
+            color: white;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>主页</li>
+            <li>新闻</li>
+            <li>联系我们</li>
+            <li>关于我们</li>
+        </ul>
+    </nav>
+    <div>
+        <aside>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>Vue.js</li>
+                <li>Ract.js</li>
+                <li>小程序</li>
+            </ul>
+        </aside>
+        <section>
+            <header>这是标题</header>
+            <article>
+                <br>
+                <h1>HTML5</h1><br>
+                <p>HTML5 是 W3C 与 WHATWG 合作的结果,WHATWG 指 Web Hypertext Application Technology Working Group。WHATWG 致力于 web 表单和应用程序，而 W3C 专注于 XHTML 2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。HTML5在从前HTML4.01的基础上进行了一定的改进，虽然技术人员在开发过程中可能不会将这些新技术投入应用，但是对于该种技术的新特性，网站开发技术人员是必须要有所了解的。</p><br>
+                <p>HTML5是Web中核心语言HTML的规范，用户使用任何手段进行网页浏览时看到的内容原本都是HTML格式的，在浏览器中通过一些技术处理将其转换成为了可识别的信息。HTML5在从前HTML4.01的基础上进行了一定的改进，虽然技术人员在开发过程中可能不会将这些新技术投入应用，但是对于该种技术的新特性，网站开发技术人员是必须要有所了解的。</p>
+            </article>
+        </section>
+    </div>
+    <footer>底部文本</footer>
+</body>
+</html>
