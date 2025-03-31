@@ -10,7 +10,7 @@ module.exports = {
   },
   output:{
     filename: 'bundle.js',
-    path: ROOT_PATH + './dist'
+    path: ROOT_PATH + '/dist'
     // path: path.resolve(__dirname, 'public/assets'),
   },
   module:{
