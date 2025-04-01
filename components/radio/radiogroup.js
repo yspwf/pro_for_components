@@ -11,7 +11,7 @@ const YRadioGroup = ({click, active, children}) => {
 
 
     return (
-      <div>
+      <>
                 {
                     React.Children.map(children, child => {
                         let isActive = activeValue === child.props.value ? true : false;
@@ -23,7 +23,7 @@ const YRadioGroup = ({click, active, children}) => {
                         })
                     })
                 }
-      </div>
+      </>
   )
     
 }

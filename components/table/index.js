@@ -15,7 +15,7 @@ const YTable = ({title=[], data=[], rowSelect}) => {
       <div className="YtableTitle">
         <div className="YtableRow">
           <div className="YtableCell">
-          <div style={{display: "inline-block", marginTop: "5px"}}><YCheckbox label="全选" style={{left:"20%", top:"50%", transform:"translate(-50%, 15%)"}}/></div>
+          <div style={{display: "inline-block", marginTop: "5px"}}><YCheckbox label="全选" style={{left:"20%", top:"50%"}}/></div>
           </div>
           {
             title.length>0 && title.map((item, index) => {
@@ -34,7 +34,7 @@ const YTable = ({title=[], data=[], rowSelect}) => {
           {
             data.length>0 && data.map((dataItem, index) => {
               return <div key={index} className="YtableRow">
-                <div className="YtableCell"><YCheckbox checked={true} click={() => {rowSelect(dataItem)}} style={{left:"50%", top:"50%", transform:"translate(-50%, 10%)"}}/></div>
+                <div className="YtableCell"><YCheckbox checked={true} click={() => {rowSelect(dataItem)}} style={{left:"50%", top:"50%"}}/></div>
                 {
                   keys.length>0 && keys.map((item, keyIndex) => {
                     if(typeof item == 'string') {

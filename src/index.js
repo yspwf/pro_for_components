@@ -5,7 +5,8 @@ import '../common';
 import '../components/HiView';
 import './index.css';
 
-import {NavBar, YCard, YButton, YCheck, YRadio, YLoading} from '../components';
+import {NavBar, YCard, YButton, YCheck, YRadio, YLoading, YLayout} from '../components';
+const { YHeader, YSlider, YContent } = YLayout;
 
 import { BrowserRouter, Routes, Route, Link, useSearchParams, Outlet } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ const About = lazy(()=> import('./about' ));
 const Service = lazy(()=> import('./service'));
 const Contact = lazy(()=> import('./contact'));
 const Login = lazy(()=> import('./login'));
+const Admin = lazy(() => import('./admin'));
 
 
 function LoadingFallback({ delay = 200 }) {
@@ -196,6 +198,7 @@ createRoot(root).render(<BrowserRouter>
       <Route path="service" element={LazyLoad(<Service/>)} />
       <Route path="contact" element={LazyLoad(<Contact/>)} />
     </Route>
+    <Route path="admin" element={<Admin/>}/>
     <Route path="login" element={<Login/>} />
   </Routes>
   </Suspense>

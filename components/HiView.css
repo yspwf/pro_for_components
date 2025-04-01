@@ -162,7 +162,7 @@
 }
 
 .Yradio::before{
-  transform: rotate(0deg);
+  transform: scale(0) rotate(0deg);
   height: 12px;
   width: 12px;
   border-radius: 100%;
@@ -178,6 +178,7 @@
 .YBoxChecked::before{
   /* display: inline-block; */
   opacity: 1;
+  transform: scale(1) rotate(-45deg);
 }
 
 
@@ -188,9 +189,9 @@
   align-items: center;
   padding: 0px 30px;
 }
-.radio-wrap:active {
+/* .radio-wrap:active {
   background-color: rgb(221, 221, 221);
-}
+} */
 
 .left {
   display: inline-block;
