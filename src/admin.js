@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import '../common';
 import '../components/HiView';
@@ -27,6 +28,8 @@ const Loading = (props) => {
 export default () => {
 
   const [vals, setVals] = useState({});
+
+  const navigate = useNavigate();
 
   const getUser = (value) => {
     console.log("user", value);
@@ -337,6 +340,13 @@ export default () => {
     console.log("optionSelect", val);
   }
 
+  const loginOut = (e) => {
+    e.preventDefault();
+    navigate('/', {
+      replace: true
+    })
+  }
+
   return <>
     <YLayout>
       <YHeader>
@@ -348,6 +358,9 @@ export default () => {
             <a href="#" className="login">登录</a>
             <a href="#" className="signup">注册</a>
         </div> */}
+        <div style={{"width":"10%", "alignContent": "center", "textAlign":"center"}}>
+        <YButton type='success' click={loginOut} text="退出"/> 
+        </div>
       </YHeader>
       <YLayout>
         <YSlider style={{width:"150px"}}><YMenu menu={MenuData}/></YSlider>

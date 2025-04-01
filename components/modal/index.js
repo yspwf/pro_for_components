@@ -116,10 +116,10 @@ const YModal = ({ children, closeModal, visible=false }) => {
     }, []);
 
     const renderModal = createPortal(
-        <div className="modal" onClick={handleClick}>
+        <div className={"modal"} onClick={handleClick}>
             <div className="dialog">
-            <span onClick={btnCloseModal} className="closeBtn"><CloseIcon color='red'/></span>
-                {children}
+                <span onClick={btnCloseModal} className="closeBtn"><CloseIcon color='red'/></span>
+                    {children}
             </div>
         </div>,
         document.body

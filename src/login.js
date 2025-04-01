@@ -37,7 +37,7 @@ const Login = () => {
 
 
   return <div style={{"position":"absolute", "left":"50%", "top":"50%", "transform":"translate(-50%, -50%)"}}>
-    <YCard style={{"width": "20vw"}}>
+    <YCard style={{"width": "40vw"}}>
       {/* <form style={{"width": "20vw"}}> */}
         <div style={style}>
           <label>账号:</label>
