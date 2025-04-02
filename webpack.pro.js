@@ -1,9 +1,20 @@
 const { merge } = require('webpack-merge');
 const basicConfig = require('./basic.config');
 
+
+const os = require("os");
+const threads = os.cpus().length - 3; // 获取cpu的核心数
+const terserWebpackPlugin = require("terser-webpack-plugin");
+
 module.exports = merge(basicConfig, {
-  mode: 'production',
+  mode: "production",
+  devtool: "source-map",
   optimization: {
+    minimizer: [
+      new terserWebpackPlugin({
+        parallel: threads, //开启多进程
+      })
+    ],
     // 代码分割配置
     splitChunks: {
         chunks: "all", //对所有模块进行分割
@@ -36,9 +47,9 @@ module.exports = merge(basicConfig, {
             // }
             default: {
                 minSize: 0, // 分割代码大小为0kb        
-                       minChunks: 2, // 最少被引用的次数，满足条件才会代码分割
-                       priority: -20, // 优先级，数字越大，优先级越高，优先打包到该组 (权重， 越大越高)
-                       reuseExistingChunk: true, // 如果该组的模块已经被打包过，是否复用该组的模块 ,(如果当前chunk包含已从budle中拆分出的模块，则它将被重用，而不是生成新的模块)
+                minChunks: 2, // 最少被引用的次数，满足条件才会代码分割
+                priority: -20, // 优先级，数字越大，优先级越高，优先打包到该组 (权重， 越大越高)
+                reuseExistingChunk: true, // 如果该组的模块已经被打包过，是否复用该组的模块 ,(如果当前chunk包含已从budle中拆分出的模块，则它将被重用，而不是生成新的模块)
             }
         }
     }

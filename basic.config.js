@@ -10,9 +10,20 @@ module.exports = {
   },
   output:{
     // filename: 'bundle.js',
-    filename: "[name][hash:8].js",
-    path: ROOT_PATH + '/dist'
+    // filename: "[name][hash:8].js",
+    path: ROOT_PATH + '/dist',
     // path: path.resolve(__dirname, 'public/assets'),
+    // publicPath: '/',    //自动生成html引入js的路径
+    //按需加载
+    chunkFilename:'[name]_[chunkhash:8].js',
+    // 文件名称
+    filename: "[name].[contenthash].js",
+    // 输出目录
+    // path: path.resolve(__dirname, "./dist"),
+    // 每次编译输出的时候，清空dist目录 - 这里就不需要clean-webpack-plugin了
+    clean: true,
+    // 所有URL访问的前缀路径
+    publicPath: "/",
   },
   module:{
     rules:[
@@ -21,7 +32,22 @@ module.exports = {
         loader:'babel-loader',
         exclude: /node_modules/,
         options:{
-          presets: ['@babel/preset-env', '@babel/preset-react']
+          // presets: ['@babel/preset-env', '@babel/preset-react'],
+          presets: [
+            [
+              // 预设polyfill
+              "@babel/preset-env",
+              {
+                // polyfill 只加载使用的部分
+                useBuiltIns: "usage",
+                // 使用corejs解析，模块化
+                corejs: "3",
+              },
+            ],
+            // 解析react
+            "@babel/preset-react",
+          ],
+          plugins: ['@babel/plugin-transform-runtime'] //减少代码体积
         }
       },
       // {
@@ -109,7 +135,43 @@ module.exports = {
           // }
         ],
         exclude: /node_modules/
-      }
+      },
+      // {
+      //   test: /.(gif|png|jpe?g|svg)$/i,
+      //   type: "asset",
+      //   parser: {
+      //     dataUrlCondition:{
+      //       maxSize: 200 * 1024  // 小于200kb大小的图片转base64格式
+      //     }
+      //   },
+      //   generator: {
+      //     filename: "img/[hash:7][ext]"
+      //   }
+      // }
+          {
+            test: /.(png|jpe?g|gif|svg)$/,
+            type: "asset",
+            parser: {
+              dataUrlCondition: {
+                maxSize: 100 * 1024, // 小于10kb的图片会被base64处理
+              },
+            },
+            generator: {
+              // 将图片文件输出到 static/imgs 目录中
+              // 将图片文件命名 [hash:8][ext][query]
+              // [hash:8]: hash值取8位
+              // [ext]: 使用之前的文件扩展名
+              // [query]: 添加之前的query参数
+              filename: "static/imgs/[hash:8][ext][query]",
+            },
+          },
+          {
+            test: /.(ttf|woff2?)$/,
+            type: "asset/resource",
+            generator: {
+              filename: "static/media/[hash:8][ext][query]",
+            },
+          }
     ]
   },
   plugins:[

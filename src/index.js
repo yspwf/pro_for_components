@@ -5,7 +5,7 @@ import '../common';
 import '../components/HiView';
 import './index.css';
 
-import {NavBar, YCard, YButton, YCheck, YRadio, YLoading, YLayout} from '../components';
+import { YCard, YButton, YCheck, YRadio, YLoading, YLayout} from '../components';
 const { YHeader, YSlider, YContent } = YLayout;
 
 import { BrowserRouter, Routes, Route, Link, useSearchParams, Outlet } from 'react-router-dom';
@@ -22,24 +22,7 @@ const Login = lazy(()=> import('./login'));
 const Admin = lazy(() => import('./admin'));
 
 
-function LoadingFallback({ delay = 200 }) {
-  const [showLoading, setShowLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("LoadingFallback")
-    const timer = setTimeout(() => {
-      setShowLoading(false);
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  if (!showLoading) {
-    return null;
-  }
-
-  return <YLoading view={showLoading} />;
-}
 
 const Loader = () => {
   return (
@@ -51,41 +34,8 @@ const LazyLoad = (Comp) => (
   <Suspense fallback={<Loader/>}>{Comp}</Suspense>
 )
 
-const style2 = {
-  "border": "none", 
-  // "padding": "50px 90px"
-  "width": '20%',
-  "background": "linear-gradient(80deg, #537cee, #b9e2ed)",
-  "padding": "25px",
-}
-
-const style3 = {
-  "border": "none", 
-  // "padding": "50px 90px"
-  "width": '20%',
-  "background": "linear-gradient(45deg, #537cee, #b9e2ed)",
-  "padding": "25px",
-}
-
-const style4 = {
-  "border": "none", 
-  // "padding": "50px 90px"
-  "width": '20%',
-  "background": "linear-gradient(120deg, #537cee, #b9e2ed)",
-  "padding": "25px",
-}
-
-
-
 const App = () => {
-
   return <>
-    {/* <div className="header">
-      <div style={{"width":"80%", "margin":"0 auto", "display":"flex"}}>
-        <div style={{"padding": "10px 20px 10px 0", "marginRight":"55%", "fontSize": "16px"}}>Hi.ui</div>
-        <NavBar links={links}/>
-      </div>
-    </div> */}
 		<div className="main" style={{"width": "80%", "margin": "0 auto"}}>
       <h1 style={{"fontSize": "50px", "textAlign": "center", "padding": "100px 0","color": "#fff"}}>Hi.ui</h1>
       <div style={{"display":"flex", "justifyContent":"space-between", "padding":"90px 0"}}>
@@ -153,40 +103,7 @@ const App = () => {
   </>
 }
 
-const Layout = () => {
-  const [links, setLinks] = useState([
-    {
-      path:'/',
-      text:"首页"
-    },
-    {
-      path:'/service',
-      text:"服务"
-    },
-    {
-      path:'/about',
-      text:"关于我们"
-    },
-    {
-      path:'/contact',
-      text:"联系我们"
-    },
-    {
-      path:'/login',
-      text:"登录"
-    }
-  ]);
-
-  return <>
-    <div className="header" style={{"background": "linear-gradient(180deg, rgb(70 111 225), rgb(112 125 242))"}}>
-      <div style={{"width":"80%", "margin":"0 auto", "display":"flex", "color": "rgb(228 228 228)"}}>
-        <div style={{"padding": "10px 20px 10px 0", "marginRight":"50%", "fontSize": "16px"}}>Hi.ui</div>
-        <NavBar links={links}/>
-      </div>
-    </div>
-    <Outlet/>
-  </>
-}
+import Layout from './layout';
 
 const root = document.getElementById('root');
 createRoot(root).render(<BrowserRouter>
