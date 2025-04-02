@@ -24,6 +24,9 @@ module.exports = {
     clean: true,
     // 所有URL访问的前缀路径
     publicPath: "/",
+    libraryTarget: 'umd', // 采用通用模块定义, 注意webpack到4.0为止依然不提供输出es module的方法，所以输出的结果必须使用npm安装到node_modules里再用，不然会报错
+    library: 'react-simple-component-Hi.ui', // 库名称
+    libraryExport: 'default', // 兼容 ES6(ES2015) 的模块系统、CommonJS 和 AMD 模块规范
   },
   module:{
     rules:[
@@ -179,7 +182,18 @@ module.exports = {
       title:'webapck cli test',
       template: ROOT_PATH + '/index.html',
       filename: 'index.html',
-      inject: "body"
+      inject: "body",
+      // inject: true, // 自动注入静态资源
+                hash: true,
+                cache: false,
+                // 压缩html资源
+                minify: {
+                    removeAttributeQuotes: true,
+                    collapseWhitespace: true, //去空格
+                    removeComments: true, // 去注释
+                    minifyJS: true, // 在脚本元素和事件属性中缩小JavaScript(使用UglifyJS)
+                    minifyCSS: true, // 缩小CSS样式元素和样式属性
+                }
     }),
     new miniCssExtractPlugin({
       filename: 'static/css/main.[hash:8].css'
