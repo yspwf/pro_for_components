@@ -7,4 +7,7 @@ const YSlider = ({style, children}) => {
   )
 
 }
+
+YSlider.prototype.name = 'YSlider';
+
 export default YSlider;

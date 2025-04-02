@@ -7,4 +7,7 @@ const YContent = ({children}) => {
   )
 
 }
+
+YContent.prototype.name = 'YContent';
+
 export default YContent;

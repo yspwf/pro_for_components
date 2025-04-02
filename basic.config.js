@@ -9,7 +9,8 @@ module.exports = {
     'main': ROOT_PATH + '/src/index.js'
   },
   output:{
-    filename: 'bundle.js',
+    // filename: 'bundle.js',
+    filename: "[name][hash:8].js",
     path: ROOT_PATH + '/dist'
     // path: path.resolve(__dirname, 'public/assets'),
   },

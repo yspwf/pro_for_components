@@ -13,4 +13,6 @@ const YHeader = ({children}) => {
   )
 }
 
+YHeader.prototype.name = 'YHeader';
+
 export default YHeader;

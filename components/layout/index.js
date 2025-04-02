@@ -32,8 +32,7 @@ const YLayout = ({children}) => (
     <>
     {
       React.Children.map(children, child => {
-        console.log(child.type.name)
-        switch(child.type.name){
+        switch(child.type.prototype.name){
           case "YHeader":
             return <div style={header}>{React.cloneElement(child, {})}</div>;
             break;
