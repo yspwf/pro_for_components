@@ -26,17 +26,48 @@ const header = {
 }
 
 const YLayout = ({children}) => (
-  // console.log("children", children[1].props.children)
-  <>
-    {children[0] && children[0].type.name == 'YHeader' ? <div style={header}>{children[0]}</div> : ''}
-    <div style={layoutStyle}>
-      {children[1].props.children}
-    </div>
-    {/* <div style={layoutStyle}>
-      {/* {children} */}
-     {/* {children[1].props.length} */}
-    {/* </div> */}
-  </>
+  // console.log("children", children[1].props.children);
+
+ 
+    <>
+    {
+      React.Children.map(children, child => {
+        console.log(child.type.name)
+        switch(child.type.name){
+          case "YHeader":
+            return <div style={header}>{React.cloneElement(child, {})}</div>;
+            break;
+          default:
+            return <div style={layoutStyle}>{children[1].props.children}</div>
+            break;
+        }
+        // return child.type.name == 'YHeader' ?  
+        // <div style={header}>{React.cloneElement(child, {})}</div> 
+        // : 
+        // <div style={layoutStyle}>{React.cloneElement(child, {})}</div>
+      })
+    }
+    </>
+  
+  // {
+  //   React.Children.map(children, child => {
+  //     // console.log(child);
+  //     return React.cloneElement(child, {});
+  //     // return React.cloneElement(child, {})
+  //   })
+  // }
+  //  <>
+
+  // {/* {children} */}
+  //   {/* {children[0] && children[0].type.name == 'YHeader' ? <div style={header}>{children[0]}</div> : ''}
+  //   <div style={layoutStyle}>
+  //     {children[1].props.children}
+  //   </div> */}
+  //   {/* <div style={layoutStyle}>
+  //     {/* {children} */}
+  //    {/* {children[1].props.length} */}
+  //   {/* </div> */}
+  // </>
 
   // <div style={layoutStyle} style={{"flexDicretion": children[0].type.name == 'YHeader' ? 'column' : 'row'}}>
   //   {/* {children} */}
